@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+h2{
+    text-align: center;  
+}
+
+
+.signup-form {
+    width: 300px;
+    margin: 0 auto;
+    font-family: 'Lora', serif;
+    
+}
+  
+  label {
+    display: block;
+    margin-bottom: 2px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

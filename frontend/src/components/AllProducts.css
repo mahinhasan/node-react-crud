@@ -1,0 +1,28 @@
+.all-products-container {
+    width: 40%;
+    margin: 0 auto; 
+  }
+  
+  .products-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .products-table th, .products-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .products-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .products-table tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .products-table button {
+    margin-right: 5px;
+  }
+  
