@@ -2,7 +2,7 @@ import React from 'react';
 import './Nav.css'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import { Navigate } from 'react-router-dom';
 const Nav = () => {
   const navigate = useNavigate();
   const auth = localStorage.getItem("userInfo");
@@ -10,14 +10,20 @@ const Nav = () => {
 
   const logout = () => {
     localStorage.clear();
-    navigate('/login');
+    if (!loginUser) {
+      navigate('/login'); 
+    }
   };
+  
+  if (!loginUser) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <nav className='navbar'>
       <div className="logo-container">
       
-        <h1 className="brand-name">MyApp</h1>
+        <h1 className="brand-name">Hungry</h1>
       </div>
       {loginUser ? (
         <ul className='nav-ul'>
@@ -27,9 +33,9 @@ const Nav = () => {
           <li>
             <Link to={"/add"}>Add Product</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to={"/update"}>Update Product</Link>
-          </li>
+          </li> */}
           <ul className='nav-right'>
             <li>
               <span className="username">{JSON.parse(loginUser).name}</span>

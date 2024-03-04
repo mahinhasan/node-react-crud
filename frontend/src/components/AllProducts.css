@@ -1,11 +1,15 @@
 .all-products-container {
-    width: 40%;
-    margin: 0 auto; 
+    width: 60%;
+    margin: 0 auto;
+    font-family: monospace;
+    font-size: 16px; 
+
   }
   
   .products-table {
     width: 100%;
     border-collapse: collapse;
+    
   }
   
   .products-table th, .products-table td {
@@ -16,6 +20,8 @@
   
   .products-table th {
     background-color: #f2f2f2;
+    text-transform: uppercase;
+    align-items: center;
   }
   
   .products-table tr:hover {
@@ -24,5 +30,24 @@
   
   .products-table button {
     margin-right: 5px;
+  }
+
+  .products-table .button{
+    display: flex;
+
+    color: rgb(8, 22, 34);
+  }
+  
+  .products-table .button p{
+    display: flex;
+    border: 1px solid rgba(133, 130, 130, 0.356);
+    color: rgb(8, 22, 34);
+    margin: 5px;
+    padding: 5px;
+    background-color: rgba(169, 169, 169, 0.288);
+  }
+  
+  .products-table .button p:hover {
+    cursor: pointer;
   }
   

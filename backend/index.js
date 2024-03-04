@@ -55,5 +55,29 @@ app.delete("/products/:id", async (req, res) => {
   }
 });
 
+
+
+app.put("/update/:id", async (req, resp) => {
+  try {
+    const productId = req.params.id;
+    const updateData = req.body; // Data to update
+
+    // Find the product by ID and update it
+    const result = await Product.findOneAndUpdate({ _id: productId }, updateData, { new: true });
+
+    if (result) {
+      resp.json(result); // Send updated product data as response
+    } else {
+      resp.status(404).json({ error: "No data found" });
+    }
+  } catch (error) {
+    console.error("Error updating product:", error);
+    resp.status(500).json({ error: "Failed to update product data" });
+  }
+});
+
+
+
+
 // app listing
 app.listen(5000);

@@ -1,23 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddProduct.css";
-const AddProduct = () => {
-  const [formData, setFormData] = useState({
+
+const AddProduct = ({ formData }) => {
+  const [productData, setProductData] = useState({
     name: "",
     price: "",
     category: "",
     company: "",
   });
 
+  useEffect(() => {
+    if (formData) {
+      setProductData(formData);
+    }
+  }, [formData]);
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setProductData({ ...productData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/add-product/", formData);
-      setFormData({
+      await axios.post("http://localhost:5000/add-product/", productData);
+      setProductData({
         name: "",
         price: "",
         category: "",
@@ -39,7 +46,7 @@ const AddProduct = () => {
           <input
             type="text"
             name="name"
-            value={formData.name}
+            value={productData.name}
             onChange={handleChange}
             required
           />
@@ -50,7 +57,7 @@ const AddProduct = () => {
           <input
             type="text"
             name="price"
-            value={formData.price}
+            value={productData.price}
             onChange={handleChange}
             required
           />
@@ -61,7 +68,7 @@ const AddProduct = () => {
           <input
             type="text"
             name="category"
-            value={formData.category}
+            value={productData.category}
             onChange={handleChange}
             required
           />
@@ -72,7 +79,7 @@ const AddProduct = () => {
           <input
             type="text"
             name="company"
-            value={formData.company}
+            value={productData.company}
             onChange={handleChange}
             required
           />

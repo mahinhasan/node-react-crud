@@ -7,6 +7,7 @@ import PrivateRoute from './components/privateRoute.js';
 import Login from './components/Login.js';
 import AddProduct from './components/ProductAdd.js';
 import AllProducts from './components/AllProducts.js';
+import UpdateProduct from './components/UpdateProduct.js';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
 
         <Route path='/' element={<AllProducts/>} />
         <Route path='/add' element={<AddProduct/>}/>
-        <Route path='/update' element={<h1>Prodcut update</h1>}/>
+        <Route path='/update/:id' element={<UpdateProduct/>}/>
         <Route path='/profile' element={<h1>User profile</h1>}/>
         <Route path='/logout' element={<h1>Logout Herer</h1>}/>
         </Route>

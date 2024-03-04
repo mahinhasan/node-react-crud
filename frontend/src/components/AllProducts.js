@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AllProducts.css';
+// import { Link } from 'react-router-dom';
+
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -22,7 +24,7 @@ const AllProducts = () => {
 
   // update 
   const handleUpdate = (productId) => {
-    
+    window.location.href = `/update/${productId}`;
   };
 
 
@@ -60,10 +62,13 @@ const AllProducts = () => {
               <td>{product.category}</td>
               <td>{product.company}</td>
               <td>
-                <button onClick={() => handleUpdate(product._id)}>Update</button>
+              <div className='button'>
+                <p onClick={() => handleUpdate(product._id)}>Update</p>
                 <br/>
-                <button onClick={() => handleDelete(product._id)}>Delete</button>
+                <p onClick={() => handleDelete(product._id)}>Delete</p>
+                </div>
               </td>
+              
             </tr>
           ))}
         </tbody>
